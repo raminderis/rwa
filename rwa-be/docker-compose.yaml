@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    container_name: postgres
+    environment:
+      POSTGRES_USER: baloo
+      POSTGRES_PASSWORD: junglebook
+      POSTGRES_DB: rwabe
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    restart: always
+    container_name: adminer
+    environment:
+      ADMINER_DESIGN: "pepaLina"
+    ports:
+      - "3333:8080"
+    depends_on:
+      - db

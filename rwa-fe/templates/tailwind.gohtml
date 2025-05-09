@@ -1,0 +1,41 @@
+{{define "header"}}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-clifford: #da373d;
+      }
+    </style>
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <header class="bg-blue-300 text-white">
+        <nav class="px-8 py-6 flex items-center">
+            <div class="text-2xl pr-8 font-serif flex-grow">
+                <a class="text-2xl font-semibold hover:text-blue-100 pr-8" href="/">Home</a>
+                <a class="text-2xl font-semibold hover:text-blue-100 pr-8" href="/stocks">Stocks</a>
+                <a class="text-2xl font-semibold hover:text-blue-100 pr-8" href="/stockquery">Stock Query</a>
+            </div>
+            <div class="">
+                <a class="text-xl font-semibold hover:text-blue-100 pr-8" href="/contact">Contact Us</a>
+            </div>
+        </nav>
+    </header>
+{{end}}
+
+{{define "footer"}}
+<footer class="bg-blue-300 text-white flex justify-center">
+        <p>Copyright The Bakhshi LLC @2025</p>
+  </body>
+</html>
+</footer>
+{{end}}
+
+
+{{ define "rwadef" }}
+<p>RWA stock assets refer to real-world assets that are tokenized and represented as digital assets, often within the blockchain or DeFi space. These assets, like stocks, are converted into digital tokens, allowing for more accessible and global trading. 
+</p>
+{{end}}
