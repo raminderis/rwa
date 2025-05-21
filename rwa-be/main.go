@@ -48,11 +48,11 @@ func main() {
 	fmt.Println("Connected to database successfully!")
 	_, err = conn.Exec(context.Background(), `
 		CREATE TABLE IF NOT EXISTS dces (
-			stockname TEXT, 
-			stockid TEXT,
+			stockname TEXT UNIQUE, 
+			stockid TEXT UNIQUE, 
 			stocktinker TEXT);
 		CREATE TABLE IF NOT EXISTS dcec (
-			stockid TEXT,
+			stockid TEXT PRIMARY KEY,
 			smartcontractaddress TEXT,
 			supportedchainids TEXT);
 	`)
@@ -69,7 +69,6 @@ func main() {
 	_, err = conn.Exec(context.Background(), "INSERT INTO dces (stockname, stockid, stocktinker) VALUES ($1, $2, $3)", stockname, stockid, stocktinker)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to insert record: %v\n", err)
-		os.Exit(1)
 	}
 	fmt.Println("Record inserted successfully!")
 
@@ -78,7 +77,6 @@ func main() {
 	_, err = conn.Exec(context.Background(), "INSERT INTO dcec (stockid, smartcontractaddress, supportedchainids) VALUES ($1, $2, $3)", stockid, smartcontractaddress, supportedchainids)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to insert record: %v\n", err)
-		os.Exit(1)
 	}
 	fmt.Println("Record inserted successfully!")
 }
